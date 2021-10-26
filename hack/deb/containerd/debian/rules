@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+#export DH_VERBOSE=1
+
+build:
+	echo noop
+
+binary:
+	mkdir -p usr/bin
+	cp containerd usr/bin/containerd
+	chmod +x usr/bin/containerd
+	cp containerd-shim usr/bin/containerd-shim
+	chmod +x usr/bin/containerd-shim
+	cp containerd-shim-runc-v1 usr/bin/containerd-shim-runc-v1
+	chmod +x usr/bin/containerd-shim-runc-v1
+	cp containerd-shim-runc-v2 usr/bin/containerd-shim-runc-v2
+	chmod +x usr/bin/containerd-shim-runc-v2
+
+	mkdir -p lib/systemd/system
+	cp containerd.service lib/systemd/system/containerd.service
+
+	mkdir -p etc/containerd
+	cp config.toml etc/containerd/config.toml
+
+	dh_testroot
+	dh_auto_install
+	dh_shlibdeps
+	dh_install
+	dh_systemd_enable
+	dh_installinit
+	dh_systemd_start
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+%:
+	dh $@ --with systemd

@@ -1,0 +1,18 @@
+Source: containerd
+Section: misc
+Priority: optional
+Maintainer: KLTS team <help@klts.io>
+Standards-Version: 3.9.4
+Homepage: https://klts.io
+Vcs-Git: https://github.com/klts-io/containerd-lts.git
+Vcs-Browser: https://github.com/klts-io/containerd-lts
+
+Package: containerd
+Architecture: %{_arch}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: |
+  containerd is an industry-standard container runtime with an emphasis on
+  simplicity, robustness and portability. It is available as a daemon for Linux
+  and Windows, which can manage the complete container lifecycle of its host
+  system: image transfer and storage, container execution and supervision,
+  low-level storage and network attachments, etc.
