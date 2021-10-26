@@ -1,0 +1,45 @@
+name: Releases Packages
+
+on:
+  push:
+    tags:
+      - v*
+
+  workflow_dispatch:
+
+jobs:
+  Packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache workdir
+        uses: actions/cache@v2
+        env:
+          cache-name: workdir
+        with:
+          path: |
+            src
+            /tmp/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-package
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}
+      - name: Install dependent
+        run: |
+          make dependent
+      - name: Checkout
+        run: |
+          make $(basename ${GITHUB_REF})
+      - name: Build binaries
+        run: |
+          make build
+      - name: Package rpm
+        run: |
+          make pkg-rpm
+      - name: Package deb
+        run: |
+          make pkg-deb
+      - name: Sync repository
+        env:
+          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        run: |
+          SOURCE="${SOURCE:-https://github.com/${{ github.repository }}}" make repos-sync
