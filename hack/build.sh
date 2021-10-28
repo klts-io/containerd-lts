@@ -26,16 +26,17 @@ for platform in ${BUILD_PLATFORMS[*]}; do
     rm -rf ~/.cache/go-build bin || :
 
     realarch=$(go env GOARCH)
-    mkdir -p _output/${os}/${arch}/
+    rm -rf "_output/${os}/${arch}/containerd" || :
+    mkdir -p "_output/${os}/${arch}/containerd"
     docker run --rm -v $(pwd):/go/src/github.com/containerd/containerd -w /go/src/github.com/containerd/containerd golang:1.17 \
         /bin/bash -c "
     GO111MODULE=auto GOOS=${os} GOARCH=${arch} make BUILDTAGS='${BUILDTAGS}' binaries && \
         rm -f bin/containerd-stress && \
-        mv bin/* _output/${os}/${arch}/ || :
+        mv bin/* _output/${os}/${arch}/containerd/ || :
 
-    _output/${os}/${realarch}/containerd config default | sed 's#${os}/${realarch}#${os}/${arch}#g' > _output/${os}/${arch}/config.toml
+    _output/${os}/${realarch}/containerd/containerd config default | sed 's#${os}/${realarch}#${os}/${arch}#g' > _output/${os}/${arch}/containerd/config.toml
 " || echo "fail ${platform}"
-    sed 's#/usr/local/bin/containerd#/usr/bin/containerd#g' containerd.service >_output/${os}/${arch}/containerd.service
+    sed 's#/usr/local/bin/containerd#/usr/bin/containerd#g' containerd.service >_output/${os}/${arch}/containerd/containerd.service
 
 done
 
