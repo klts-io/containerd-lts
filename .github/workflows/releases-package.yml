@@ -8,21 +8,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  Packages:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Cache workdir
-        uses: actions/cache@v2
-        env:
-          cache-name: workdir
-        with:
-          path: |
-            src
-            /tmp/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-package
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}
       - name: Install dependent
         run: |
           make dependent
@@ -32,14 +21,23 @@ jobs:
       - name: Build binaries
         run: |
           make build
+
       - name: Package rpm
         run: |
           make pkg-rpm
+      - name: Sync repository
+        env:
+          BRANCH_PREFIX: "rpm-"
+          REPOS: "rpm"
+        run: |
+          GH_TOKEN="${GH_TOKEN:-${{ secrets.GITHUB_TOKEN }}}" SOURCE="${SOURCE:-https://github.com/${{ github.repository }}}" make repos-sync
+
       - name: Package deb
         run: |
           make pkg-deb
       - name: Sync repository
         env:
-          GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          BRANCH_PREFIX: "deb-"
+          REPOS: "deb"
         run: |
-          SOURCE="${SOURCE:-https://github.com/${{ github.repository }}}" make repos-sync
+          GH_TOKEN="${GH_TOKEN:-${{ secrets.GITHUB_TOKEN }}}" SOURCE="${SOURCE:-https://github.com/${{ github.repository }}}" make repos-sync
