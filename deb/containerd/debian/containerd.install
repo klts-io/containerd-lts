@@ -1,0 +1,6 @@
+usr/bin/containerd usr/bin/
+usr/bin/containerd-shim usr/bin/
+usr/bin/containerd-shim-runc-v1 usr/bin/
+usr/bin/containerd-shim-runc-v2 usr/bin/
+lib/systemd/system/containerd.service lib/systemd/system/
+etc/containerd/config.toml etc/containerd/
