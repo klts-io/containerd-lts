@@ -8,6 +8,8 @@ build:
 
 binary:
 	mkdir -p usr/bin
+	cp ctr usr/bin/ctr
+	chmod +x usr/bin/ctr
 	cp containerd usr/bin/containerd
 	chmod +x usr/bin/containerd
 	cp containerd-shim usr/bin/containerd-shim

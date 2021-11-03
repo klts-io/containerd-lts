@@ -1,3 +1,4 @@
+usr/bin/ctr usr/bin/
 usr/bin/containerd usr/bin/
 usr/bin/containerd-shim usr/bin/
 usr/bin/containerd-shim-runc-v1 usr/bin/
