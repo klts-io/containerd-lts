@@ -1,0 +1,21 @@
+Package: containerd
+Priority: optional
+Section: misc
+Installed-Size: 85126
+Maintainer: KLTS team <help@klts.io>
+Architecture: amd64
+Version: 1.3.10-lts.1
+Filename: pool/main/c/containerd/containerd_1.3.10-lts.1_amd64.deb
+Size: 17862592
+MD5sum: 2a4211c2af779a38575ce2ffc718a511
+SHA1: 63c9cd03cb71f6af7c75d2b824f5b64a86d51bc4
+SHA256: a4127649d8466efa19f3cb966b7ff2747423a0eaef10e870e9c1f80e4c097db2
+SHA512: a6b5af44511cc3568049f9cfedeab863ca667eeb49f5e56c2c270bf1cda77ce6694d60b7bb7168627562cde6f5d36c4b2bbb6746e526b28a1c5dec5527b1565d
+Description: |
+  containerd is an industry-standard container runtime with an emphasis on
+  simplicity, robustness and portability. It is available as a daemon for Linux
+  and Windows, which can manage the complete container lifecycle of its host
+  system: image transfer and storage, container execution and supervision,
+  low-level storage and network attachments, etc.
+Homepage: https://klts.io
+
