@@ -1,7 +1,7 @@
 base: https://github.com/containerd/containerd
 
 releases:
-  - name: v1.3.10-lts.0
+  - name: v1.3.10-lts.1
     base_release: v1.3.10
     must: true
     patches:
