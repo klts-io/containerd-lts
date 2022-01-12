@@ -23,3 +23,8 @@ pkg-rpm:
 .PHONY: pkg-deb
 pkg-deb:
 	./hack/pkg_deb.sh
+
+.PHONY: public-source
+public-source:
+	@echo Public Source
+	./hack/public_source.sh
