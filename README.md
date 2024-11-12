@@ -2,19 +2,21 @@
 
 The current state is available in the following tables:
 
-| Release | Status      | Start            | End of Life       |
-|---------|-------------|------------------|-------------------|
-| [0.0](https://github.com/containerd/containerd/releases/tag/0.0.5)   | End of Life | Dec 4, 2015  | - |
-| [0.1](https://github.com/containerd/containerd/releases/tag/v0.1.0)  | End of Life | Mar 21, 2016 | - |
-| [0.2](https://github.com/containerd/containerd/tree/v0.2.x)          | End of Life | Apr 21, 2016      | December 5, 2017 |
-| [1.0](https://github.com/containerd/containerd/releases/tag/v1.0.3)  | End of Life | December 5, 2017  | December 5, 2018 |
-| [1.1](https://github.com/containerd/containerd/releases/tag/v1.1.8)  | End of Life | April 23, 2018  | October 23, 2019 |
-| [1.2](https://github.com/containerd/containerd/releases/tag/v1.2.13) | End of Life | October 24, 2018 | October 15, 2020 |
-| [1.3](https://github.com/containerd/containerd/releases/tag/v1.3.10) | End of Life | September 26, 2019  | March 4, 2021 |
-| [1.4](https://github.com/containerd/containerd/releases/tag/v1.4.13) | End of Life | August 17, 2020 | March 3, 2022 |
-| [1.5](https://github.com/containerd/containerd/releases/tag/v1.5.13) | Active   | May 3, 2021  | January 28, 2023 |
-| [1.6](https://github.com/containerd/containerd/releases/tag/v1.6.8)  | LTS   | February 15, 2022  | max(February 15, 2025 or next LTS + 6 months) |
-| [1.7](https://github.com/containerd/containerd/milestone/42)         | Next   | TBD  | TBD |
+| Release                                                              | Status        | Start              | End of Life                                             |
+| ---------                                                            | ------------- | ------------------ | -------------------                                     |
+| [0.0](https://github.com/containerd/containerd/releases/tag/0.0.5)   | End of Life   | Dec 4, 2015        | -                                                       |
+| [0.1](https://github.com/containerd/containerd/releases/tag/v0.1.0)  | End of Life   | Mar 21, 2016       | -                                                       |
+| [0.2](https://github.com/containerd/containerd/tree/v0.2.x)          | End of Life   | Apr 21, 2016       | December 5, 2017                                        |
+| [1.0](https://github.com/containerd/containerd/releases/tag/v1.0.3)  | End of Life   | December 5, 2017   | December 5, 2018                                        |
+| [1.1](https://github.com/containerd/containerd/releases/tag/v1.1.8)  | End of Life   | April 23, 2018     | October 23, 2019                                        |
+| [1.2](https://github.com/containerd/containerd/releases/tag/v1.2.13) | End of Life   | October 24, 2018   | October 15, 2020                                        |
+| [1.3](https://github.com/containerd/containerd/releases/tag/v1.3.10) | End of Life   | September 26, 2019 | March 4, 2021                                           |
+| [1.4](https://github.com/containerd/containerd/releases/tag/v1.4.13) | End of Life   | August 17, 2020    | March 3, 2022                                           |
+| [1.5](https://github.com/containerd/containerd/releases/tag/v1.5.18) | End of Life   | May 3, 2021        | February 28, 2023                                       |
+| [1.6](https://github.com/containerd/containerd/releases/tag/v1.6.36) | LTS           | February 15, 2022  | next LTS + 6 months                                     |
+| [1.7](https://github.com/containerd/containerd/releases/tag/v1.7.23) | Active        | March 10, 2023     | active(May 5, 2025), extended(EOL of 1.6)               |
+| [2.0](https://github.com/containerd/containerd/releases/tag/v2.0.0)  | Active        | November 5, 2024   | max(November 5, 2025 or release of 2.1 + 6 months)      |
+| [2.1](https://github.com/containerd/containerd/milestone/48)         | Next          | TBD                | TBD                                                     |
 
 https://github.com/containerd/containerd/blob/main/RELEASES.md
 
