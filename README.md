@@ -71,3 +71,4 @@ Deprecated containerd and kubernetes versions
 
 [Docker Release](https://docs.docker.com/engine/release-notes/)  
 [Containerd Release](https://containerd.io/releases/)  
+[endoflife.date](https://endoflife.date/containerd)
