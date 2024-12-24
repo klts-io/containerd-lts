@@ -18,6 +18,12 @@ The current state is available in the following tables:
 | [2.0](https://github.com/containerd/containerd/releases/tag/v2.0.0)  | Active        | November 5, 2024   | max(November 5, 2025 or release of 2.1 + 6 months)      |
 | [2.1](https://github.com/containerd/containerd/milestone/48)         | Next          | TBD                | TBD                                                     |
 
+> **_NOTE_** containerd v1.7 will end of life at the same time as v1.6 LTS. Due to
+> [Minimal Version Selection](https://go.dev/ref/mod#minimal-version-selection) used
+> by Go modules, 1.7 must be supported until EOL of all 1.x releases. Once 1.7 is in
+> extended support, it will continue to accept security patches in addition to client
+> changes relevant for package importers using the 1.6 LTS daemon.
+
 https://github.com/containerd/containerd/blob/main/RELEASES.md
 
 ### Kubernetes Support
@@ -31,26 +37,36 @@ for the list of actively tested versions. Kubernetes only supports n-3 minor
 release versions and containerd will ensure there is always a supported version
 of containerd for every supported version of Kubernetes.
 
-| Kubernetes Version | containerd Version | CRI Version  |
-|--------------------|--------------------|--------------|
-| 1.20               | 1.5.0+             | v1alpha2     |
-| 1.21               | 1.5.0+             | v1alpha2     |
-| 1.22               | 1.5.5+             | v1alpha2     |
-| 1.23               | 1.6.0+, 1,5.8+     | v1, v1alpha2 |
-| 1.24               | 1.6.4+, 1.5.11+    | v1, v1alpha2 |
-| 1.25               | 1.6.4+, 1.5.11+    | v1, v1alpha2 |
-| 1.26               | 1.6.4+, 1.5.11+    | v1           |
+
+| Kubernetes Version | containerd Version            | CRI Version     |
+|--------------------|-------------------------------|-----------------|
+| 1.20               | 1.5.0+                        | v1alpha2        |
+| 1.21               | 1.5.0+                        | v1alpha2        |
+| 1.22               | 1.5.5+                        | v1alpha2        |
+| 1.23               | 1.6.0+, 1,5.8+                | v1, v1alpha2    |
+| 1.24               | 1.6.4+, 1.5.11+               | v1, v1alpha2    |
+| 1.25               | 1.6.4+, 1.5.11+               | v1, v1alpha2    |
+| 1.26               | 1.7.0+, 1.6.15+               | v1, v1alpha2 ** |
+| 1.27               | 1.7.0+, 1.6.15+               | v1              |
+| 1.28               | 1.7.0+, 1.6.15+               | v1              |
+| 1.29               | 1.7.11+, 1.6.27+              | v1              |
+| 1.29               | 1.7.11+, 1.6.27+              | v1              |
+| 1.30               | 2.0.0+, 1.7.13+, 1.6.28+      | v1              |
+| 1.31               | 2.0.0+, 1.7.20+, 1.6.34+      | v1              |
 
 Deprecated containerd and kubernetes versions
 
-| CRI-Containerd Version | Containerd Version | Kubernetes Version | CRI Version  |
-|------------------------|--------------------|--------------------|--------------|
-| v1.0.0-alpha.x         |                    | 1.7, 1.8           | v1alpha1     |
-| v1.0.0-beta.x          |                    | 1.9                | v1alpha1     |
-| End-Of-Life            | v1.1 (End-Of-Life) | 1.10~1.25          | v1alpha2     |
-|                        | v1.2 (End-Of-Life) | 1.10~1.25          | v1alpha2     |
-|                        | v1.3 (End-Of-Life) | 1.12~1.25          | v1alpha2     |
-|                        | v1.4 (End-of-Life) | 1.19~1.25          | v1alpha2     |
+| Containerd Version       | Kubernetes Version | CRI Version                          |
+|--------------------------|--------------------|--------------------------------------|
+| v1.0 (w/ cri-containerd) | 1.7, 1.8, 1.9      | v1alpha1                             |
+| v1.1(End-Of-Life)        | 1.10+              | v1alpha2                             |
+| v1.2(End-Of-Life)        | 1.10+              | v1alpha2                             |
+| v1.3(End-Of-Life)        | 1.12+              | v1alpha2                             |
+| v1.4(End-Of-Life)        | 1.19+              | v1alpha2                             |
+| v1.5(End-Of-Life)        | 1.20+              | v1 (1.23+), v1alpha2 (until 1.25) ** |
+| v1.6.15+, v1.7.0+        | 1.26+              | v1                                   |
+
+** Note: containerd v1.6.*, and v1.7.* support CRI v1 and v1alpha2 through EOL as those releases continue to support older versions of k8s, cloud providers, and other clients using CRI v1alpha2. CRI v1alpha2 is deprecated in v1.7 and will be removed in containerd v2.0.
 
 
 [Docker Release](https://docs.docker.com/engine/release-notes/)  
